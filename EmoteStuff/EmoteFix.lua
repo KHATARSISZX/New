@@ -1,3 +1,4 @@
+--[All Open Source]
 local TS = game:GetService("TweenService")
 local RS = game:GetService("RunService")
 local SG = game:GetService("StarterGui")
@@ -114,7 +115,7 @@ task.wait(2)
 local callback = Instance.new("BindableFunction")
 callback.OnInvoke = function(button)
     if button == "ok" then
-        setclipboard("https://discord.gg/fsQNkeJXBh")
+        setclipboard("https://discord.gg/invitacion")
     end
 end
 
@@ -127,4 +128,838 @@ SG:SetCore("SendNotification", {
     Button2 = "cancel"
 })
 
-local v0=game.Players.LocalPlayer;local v1=game:GetService("ReplicatedStorage");local v2=require(v1:WaitForChild("Emotes"));local v3=require(v1.Emotes:WaitForChild("VFX"));local v4=v2:Play(v0.Character,nil,true,nil,true);if v4['BigSlash'] then v4["World Cutting Slash"]=v4['BigSlash'];v4['BigSlash']=nil;end local v5={};for v49,v50 in pairs(v4) do table.insert(v5,v49);end v0:SetAttribute("Emotes",game:GetService("HttpService"):JSONEncode(v5));local v6=nil;local v7=false;local v8={};local function v9() if  not v7 then return;end v7=false;local v51=v0.Character;local v52=v51 and v51:FindFirstChildOfClass("Humanoid") ;if v52 then v52.WalkSpeed=16;v52.JumpPower=50;end if v51 then v51:SetAttribute("ForcedCFrame",nil);end for v132,v133 in pairs(v8) do if ((typeof(v133)=="Instance") and v133.Parent) then v133:Destroy();elseif (typeof(v133)=="RBXScriptConnection") then v133:Disconnect();end end v8={};if v6 then local v150=0 + 0 ;while true do if (v150==1) then v6=nil;break;end if (v150==0) then v6:Stop();v6:Destroy();v150=3 -2 ;end end end end local function v10(v53) local v54=v0.Character;local v55=v54 and v54:FindFirstChildOfClass("Humanoid") ;if  not v55 then return;end local v56=v4[v53];if  not v56 then return;end v9();v7=true;v55.WalkSpeed=0;v55.JumpPower=0 -0 ;local v59={};local v60={interrupted=false};local v61=Instance.new("Folder");local v62=Instance.new("Animation");v62.AnimationId="rbxassetid://"   .. (v56.Animation or "") ;v6=v55:LoadAnimation(v62);local v64=v53:lower();v6.Looped=v56.Looped or v64:find("idle") or v64:find("loop") or v64:find("pose") or v64:find("rest") or false ;v6:Play();task.spawn(function() while v7 and task.wait()  do if ((v55.MoveDirection.Magnitude>(0 + 0)) or v54:GetAttribute("Dashing") or v54:GetAttribute("Dash")) then v60.interrupted=true;v9();break;end end end);if v56.Startup then task.spawn(function() pcall(function() v56.Startup(v8,v6,v59,v56,v60,v61);end);end);end task.spawn(function() pcall(function() local v151=0 -0 ;local v152;local v153;local v154;local v155;while true do if (v151==(2 + 0)) then v154=v1.Emotes.VFX;v155=(v154:FindFirstChild("RealAssets") and v154.RealAssets:FindFirstChild(v153)) or (v154:FindFirstChild("VfxMods") and v154.VfxMods:FindFirstChild(v153)) or v154 ;v151=1477 -(1329 + 145) ;end if (v151==(972 -(140 + 831))) then table.insert(v8,v152);v153=((v53=="World Cutting Slash") and "HugeSlash") or v53 ;v151=2;end if (v151==3) then v3:MainFunction({Character=v54,vfxName=v153,SpecificModule=v155,AnimSent=tonumber(v56.Animation),RealBind=v152,CanRotate=true,DirectData=v56});break;end if (v151==(1850 -(1409 + 441))) then v152=Instance.new("Accessory",v54);v152.Name="LocalVFX";v151=1;end end end);end);if v56.Keyframes then for v163,v164 in pairs(v56.Keyframes) do local v165=v6:GetMarkerReachedSignal(v163):Connect(function() if (v7 and  not v60.interrupted) then task.spawn(function() pcall(function() v164(v59,v8,v6,v60);end);end);end end);table.insert(v8,v165);end end if v56.Sounds then for v166,v167 in pairs(v56.Sounds) do task.delay(tonumber(v166) or 0 ,function() if (v7 and  not v60.interrupted) then local v242=718 -(15 + 703) ;local v243;while true do if (v242==(0 + 0)) then v243=Instance.new("Sound");v243.SoundId=v167.SoundId;v242=439 -(262 + 176) ;end if (v242==(1724 -(345 + 1376))) then table.insert(v8,v243);if  not v243.Looped then game.Debris:AddItem(v243,v243.TimeLength + 2 );end break;end if (v242==1) then v243.Volume=v167.Volume or 1 ;v243.Looped=v167.Looped or false ;v242=690 -(198 + 490) ;end if (v242==2) then v243.Parent=(v167.ParentTorso and v54:FindFirstChild("Torso")) or v54.PrimaryPart ;v243:Play();v242=13 -10 ;end end end end);end end local v66;v66=v6.Stopped:Connect(function() if (v7 and  not v6.Looped) then v9();end end);table.insert(v8,v66);end game:GetService("UserInputService").JumpRequest:Connect(function() if v7 then v9();end end);task.spawn(function() while task.wait(0.2 -0 ) do local v134=v0.PlayerGui:FindFirstChild("Emotes");if  not v134 then continue;end local v135=v134:FindFirstChild("ImageLabel");if  not v135 then continue;end for v156=1207 -(696 + 510) ,16 -8  do local v157=1262 -(1091 + 171) ;local v158;local v159;while true do if (0==v157) then v158=v135:FindFirstChild(tostring(v156));v159=v158 and v158:FindFirstChild("Button") ;v157=1 + 0 ;end if (v157==1) then if (v159 and  not v159:GetAttribute("HookedUp")) then local v257=0 -0 ;while true do if (v257==0) then v159:SetAttribute("HookedUp",true);v159.InputBegan:Connect(function(v319) if ((v319.UserInputType==Enum.UserInputType.MouseButton1) or (v319.UserInputType==Enum.UserInputType.Touch)) then local v333=v158:GetAttribute("Emote");if v333 then v10(v333);end end end);break;end end end break;end end end end end);local v11=game:GetService("Players").LocalPlayer;local v1=game:GetService("ReplicatedStorage");local v12={133094662049155,134711731729986,76963963604222 -  -1802074 ,92547491979506 -700727873 ,128189044303888 -319169774 ,109089019455061 -386594573 ,78339272602733 -0 ,127015697036075 -0 };local v13={72555434288985,91067294642838 -(115 + 281) ,104124534923268 -0 };local v14="116187503451999";local function v15() local v67=0;local v68;local v69;while true do if (v67==(1 + 0)) then if v69 then local v231=Instance.new("Sound",v69);v231.SoundId="rbxassetid://"   .. v13[math.random(1, #v13)] ;v231.Volume=4 -2 ;v231:Play();game.Debris:AddItem(v231,10 -7 );end break;end if ((867 -(550 + 317))==v67) then v68=v11.Character;v69=v68 and v68:FindFirstChild("HumanoidRootPart") ;v67=1 -0 ;end end end local function v16(v70) local v71=0 -0 ;local v72;local v73;local v74;local v75;local v76;local v77;while true do if (v71==(0 -0)) then v72=v70:WaitForChild("Humanoid");v73=v70:GetAttribute("BlockReact") or (285 -(134 + 151)) ;v71=1666 -(970 + 695) ;end if ((1 -0)==v71) then v74=1991 -(582 + 1408) ;v75=Instance.new("Folder",v70);v71=6 -4 ;end if (v71==(4 -0)) then v77=v70:GetAttributeChangedSignal("BlockReact"):Connect(function() local v206=math.abs(v70:GetAttribute("BlockReact") or (0 -0) );if (v206~=v73) then v15();local v244=Instance.new("Animation");v244.AnimationId="rbxassetid://"   .. v12[v74] ;local v246=v72:LoadAnimation(v244);v246.Priority=Enum.AnimationPriority.Action;v246:Play(1824.1 -(1195 + 629) );v74=v74 + 1 ;if (v74> #v12) then v74=1 -0 ;end v73=v206;end end);v72.Died:Connect(function() if v77 then v77:Disconnect();end v75:Destroy();end);break;end if (v71==3) then v76=v1.Emotes.VFX.VfxMods.Evolved.vfx.Folder;for v207,v208 in pairs(v76:GetChildren()) do if v208:IsA("BasePart") then local v249=v70:FindFirstChild(v208.Name);if v249 then local v270=v208:Clone();v270.Transparency=1;v270.Massless=true;v270.CanCollide=false;v270.Parent=v75;local v275=Instance.new("Weld",v270);v275.Part0=v249;v275.Part1=v270;for v291,v292 in pairs(v270:GetDescendants()) do if (v292:IsA("ParticleEmitter") or v292:IsA("Beam")) then v292.Enabled=true;end end end end end v71=245 -(187 + 54) ;end if (v71==2) then v75.Name="AuraHolder";v75:SetAttribute("DivineForm",true);v71=783 -(162 + 618) ;end end end local function v17(v78) local v79=0;local v80;local v81;while true do if (v79==(0 + 0)) then v80=v78:WaitForChild("Humanoid");v81=false;v79=1 + 0 ;end if (v79==(1 -0)) then v80.AnimationPlayed:Connect(function(v209) local v210=0;local v211;while true do if (v210==0) then v211=tostring(v209.Animation.AnimationId);if (v211:find(v14) and  not v81) then v81=true;local v293=Instance.new("Accessory",v78);v293.Name="#EmoteHolder_Divine";v293:SetAttribute("EmoteProperty",true);pcall(function() require(v1.Emotes.VFX):MainFunction({Character=v78,vfxName="Divine Form",SpecificModule=v1.Emotes.VFX,AnimSent=116187503451999,RealBind=v293});end);task.delay(4 -1 ,function() if (v80.Health>(0 + 0)) then v16(v78);end end);end break;end end end);break;end end end if v11.Character then v17(v11.Character);end v11.CharacterAdded:Connect(v17);local v11=game:GetService("Players").LocalPlayer;local v1=game:GetService("ReplicatedStorage");local v18=game:GetService("Workspace");local v14="133818134745501";local v19="Pride";local v20="rbxassetid://18463718356";local v21="rbxassetid://93369149563360";local v22=false;local v23=1636 -(1373 + 263) ;local v24=nil;local function v25(v82,v83,v84) local v85=0;local v86;local v87;local v88;while true do if (v85==(1007 -(451 + 549))) then v88.Parent=v86;task.delay(0.2 + 0 ,function() v87.Rate=0;task.wait(0.1 -0 );v86:Destroy();end);break;end if (v85==(0 -0)) then if  not v82 then return;end v86=Instance.new("Part");v86.Size=Vector3.new(1,1,1385 -(746 + 638) );v85=1;end if (v85==(2 + 1)) then v87.Shape=Enum.ParticleEmitterShape.Disc;v87.Lifetime=NumberRange.new(0.04);v87.Brightness=30;v85=5 -1 ;end if (v85==(346 -(218 + 123))) then v87.Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,0),NumberSequenceKeypoint.new(0.8 + 0 ,560 -(306 + 254) ),NumberSequenceKeypoint.new(1 -0 ,1468 -(899 + 568) )});v87.Parent=v86;v88=Instance.new("Weld");v85=4 + 2 ;end if (v85==(2 -1)) then v86.Transparency=604 -(268 + 335) ;v86.CanCollide=false;v86.Massless=true;v85=292 -(60 + 230) ;end if (v85==(574 -(426 + 146))) then v86.Parent=v18;v87=Instance.new("ParticleEmitter");v87.Texture=v20;v85=1 + 2 ;end if (v85==4) then v87.Rate=1956 -(282 + 1174) ;v87.ZOffset=814 -(569 + 242) ;v87.Size=NumberSequence.new(v84,0 -0 );v85=5;end if (v85==(1 + 5)) then v88.Part0=v82;v88.Part1=v86;v88.C0=v83;v85=1031 -(706 + 318) ;end end end local function v26() local v89=1251 -(721 + 530) ;local v90;while true do if (v89==0) then v22=false;if v24 then v24:Disconnect();v24=nil;end v89=1272 -(945 + 326) ;end if (v89==1) then v90=v11.Character;if v90 then local v234=0 -0 ;local v235;while true do if ((0 + 0)==v234) then v235=v90:FindFirstChild("DismantleEffect");if v235 then v235:Destroy();end break;end end end break;end end end local function v27(v91) v26();v22=true;v23=tick();v24=v91:GetAttributeChangedSignal("LastM1Hitted"):Connect(function() if  not v22 then return;end local v136=v91:GetAttribute("LastM1Hitted");if ( not v136 or (v136=="")) then return;end v23=tick();local v137=tostring(v136):match("([^;]+)");local v138=v18:FindFirstChild(v137) or (v18:FindFirstChild("Live") and v18.Live:FindFirstChild(v137)) ;if (v138 and v138:FindFirstChild("Humanoid")) then local v191=v138:FindFirstChild("HumanoidRootPart") or v138:FindFirstChild("Torso") or v138:FindFirstChild("UpperTorso") ;if v191 then v25(v191,CFrame.new(700 -(271 + 429) ,0,0 + 0 ),1505 -(1408 + 92) );v25(v191,CFrame.new( -(1087.5 -(461 + 625)),1289.5 -(993 + 295) ,0),1.5 + 2 );v25(v191,CFrame.new(1.5, -1.5,1171 -(418 + 753) ),1.5 + 1 );end end end);task.spawn(function() local v139=tick();while v22 do task.wait(0.5);local v160=tick();if (((v160-v139)>=(4 + 31)) or ((v160-v23)>=20)) then v26();break;end end end);end local function v17(v92) local v93=v92:WaitForChild("Humanoid");v93.AnimationPlayed:Connect(function(v140) if tostring(v140.Animation.AnimationId):find(v14) then local v192=0;local v193;local v194;local v195;while true do if (v192==4) then v195=v93.Running:Connect(function(v258) if (v258>0.1) then local v295=0;while true do if (v295==(0 + 0)) then v140:Stop(0.2 + 0 );v195:Disconnect();break;end end end end);break;end if (v192==1) then v193:Play();game.Debris:AddItem(v193,5);v194=Instance.new("Accessory",v92);v192=2;end if ((529 -(406 + 123))==v192) then v193=Instance.new("Sound",v92:FindFirstChild("Torso") or v92.PrimaryPart );v193.SoundId=v21;v193.Volume=1771 -(1749 + 20) ;v192=1 + 0 ;end if (v192==3) then v27(v92);task.spawn(function() while v140.IsPlaying do if (v140.TimePosition>=(v140.Length-(1322.1 -(1249 + 73)))) then v140:AdjustSpeed(0);v140.TimePosition=v140.Length-(0.01 + 0) ;break;end task.wait();end end);v195=nil;v192=1149 -(466 + 679) ;end if (v192==(4 -2)) then v194.Name="DismantleEffect";v194:SetAttribute("EmoteEffect",true);pcall(function() require(v1.Emotes.VFX):MainFunction({Character=v92,vfxName=v19,SpecificModule=v1.Emotes.VFX,AnimSent=tonumber(v14),RealBind=v194,CanRotate=true});end);v192=3;end end end end);end if v11.Character then v17(v11.Character);end v11.CharacterAdded:Connect(v17);local v11=game:GetService("Players").LocalPlayer;local v1=game:GetService("ReplicatedStorage");local v14="86505219150915";local v28={[0 -0 ]={SoundId="rbxassetid://117787451950766",Volume=1902 -(106 + 1794) },[0.01]={SoundId="rbxassetid://97998065677521",Volume=1.85},[2.29]={SoundId="rbxassetid://99535007576182",Looped=true,Volume=2}};local function v29(v94) if v94:IsA("BasePart") then local v161=0 + 0 ;while true do if (v161==(1 + 0)) then v94.CanQuery=false;v94.Massless=true;v161=5 -3 ;end if (v161==(5 -3)) then v94.Anchored=false;break;end if (v161==0) then v94.CanCollide=false;v94.CanTouch=false;v161=1;end end end end local function v30(v95) local v96=114 -(4 + 110) ;local v97;while true do if (v96==1) then for v213,v214 in ipairs(v97:GetChildren()) do local v215=0;local v216;while true do if (v215==(584 -(57 + 527))) then v216=v95:FindFirstChild(v214.Name);if (v216 and v216:IsA("BasePart")) then local v296=0;local v297;while true do if (v296==(1428 -(41 + 1386))) then v297.Parent=v95;for v334,v335 in ipairs(v214:GetChildren()) do local v336=103 -(17 + 86) ;local v337;while true do if (v336==(0 + 0)) then v337=v335:Clone();if (v337:IsA("BasePart") or v337:IsA("Model")) then local v353=0 -0 ;local v354;while true do if (v353==(0 -0)) then v337.Parent=v297;v354=(v337:IsA("Model") and (v337.PrimaryPart or v337:FindFirstChildWhichIsA("BasePart"))) or v337 ;v353=167 -(122 + 44) ;end if (v353==(1 -0)) then if v354 then local v359=Instance.new("Weld");v359.Part0=v216;v359.Part1=v354;v359.C0=CFrame.new(0,0 -0 ,0 + 0 );v359.Parent=v354;v29(v337);for v364,v365 in ipairs(v337:GetDescendants()) do local v366=0 + 0 ;while true do if (v366==(0 -0)) then v29(v365);if v365:IsA("ParticleEmitter") then v365.Enabled=true;v365:Emit(50);end break;end end end end break;end end elseif (v337:IsA("ParticleEmitter") or v337:IsA("Attachment")) then v337.Parent=v216;if v337:IsA("ParticleEmitter") then v337.Enabled=true;v337:Emit(115 -(30 + 35) );end end break;end end end break;end if (v296==0) then v297=Instance.new("Folder");v297.Name="Strongest_"   .. v214.Name ;v296=1 + 0 ;end end end break;end end end break;end if (v96==0) then v97=v1.Emotes:FindFirstChild("TheStrongestEmote");if  not v97 then return;end v96=1258 -(1043 + 214) ;end end end local function v31(v98) local v99=v98:WaitForChild("Humanoid");v99.AnimationPlayed:Connect(function(v141) if tostring(v141.Animation.AnimationId):find(v14) then local v196=0 -0 ;local v197;while true do if ((1212 -(323 + 889))==v196) then for v259,v260 in pairs(v28) do task.delay(v259,function() local v278=0 -0 ;local v279;while true do if (v278==0) then v279=Instance.new("Sound",workspace);v279.SoundId=v260.SoundId;v278=581 -(361 + 219) ;end if ((321 -(53 + 267))==v278) then v279.Volume=v260.Volume;v279.Looped=v260.Looped or false ;v278=2;end if (v278==(1 + 1)) then v279:Play();if  not v279.Looped then game.Debris:AddItem(v279,8);end break;end end end);end task.delay(413.1 -(15 + 398) ,function() local v261=Instance.new("Folder",v98);v261.Name="PrideBind";v261:SetAttribute("EmoteProperty",true);pcall(function() require(v1.Emotes.VFX):MainFunction({Character=v98,vfxName="Boss Raid",SpecificModule=v1.Emotes.VFX,AnimSent=tonumber(v14),RealBind=v261});end);end);v196=983 -(18 + 964) ;end if (v196==(3 -2)) then task.spawn(function() while v141.IsPlaying do if (v141.TimePosition>=(v141.Length-(0.1 + 0))) then v141:AdjustSpeed(0 + 0 );v141.TimePosition=v141.Length-0.01 ;break;end task.wait();end end);v197=nil;v196=852 -(20 + 830) ;end if (v196==(2 + 0)) then v197=v99.Running:Connect(function(v263) if (v263>(126.1 -(116 + 10))) then local v298=0;while true do if (v298==1) then v197:Disconnect();break;end if (v298==0) then v141:Stop(0.2);v30(v98);v298=1 + 0 ;end end end end);break;end end end end);end if v11.Character then v31(v11.Character);end v11.CharacterAdded:Connect(v31);local v11=game:GetService("Players").LocalPlayer;local v1=game:GetService("ReplicatedStorage");local v14="121032789756540";local v32=v1.Emotes.auraNew;local function v33(v100) for v142,v143 in pairs(v32:GetChildren()) do local v144=v100:FindFirstChild(v143.Name);if (v144 and v144:IsA("BasePart")) then local v198=738 -(542 + 196) ;local v199;while true do if (v198==(0 -0)) then v199=Instance.new("Folder");v199.Name="AuraEffect_"   .. v143.Name ;v198=1;end if (v198==(1 + 0)) then v199.Parent=v100;for v264,v265 in pairs(v143:GetChildren()) do local v266=v265:Clone();if (v266:IsA("BasePart") or v266:IsA("Model")) then local v299=0 + 0 ;local v300;while true do if (v299==(0 + 0)) then v266.Parent=v199;v300=(v266:IsA("Model") and (v266.PrimaryPart or v266:FindFirstChildWhichIsA("BasePart"))) or v266 ;v299=2 -1 ;end if (v299==1) then if v300 then local v338=Instance.new("Weld");v338.Part0=v144;v338.Part1=v300;v338.C0=CFrame.new(0 -0 ,0,1551 -(1126 + 425) );v338.Parent=v300;local function v343(v345) if v345:IsA("BasePart") then v345.Anchored=false;v345.CanCollide=false;v345.Massless=true;elseif v345:IsA("ParticleEmitter") then v345.Enabled=true;end end v343(v266);for v346,v347 in ipairs(v266:GetDescendants()) do v343(v347);end end break;end end elseif (v266:IsA("ParticleEmitter") or v266:IsA("Attachment")) then local v326=405 -(118 + 287) ;while true do if (v326==0) then v266.Parent=v144;if v266:IsA("ParticleEmitter") then v266.Enabled=true;end break;end end end end break;end end end end end local function v31(v101) local v102=0 -0 ;local v103;local v104;while true do if (v102==(1122 -(118 + 1003))) then v103.AnimationPlayed:Connect(function(v217) if (tostring(v217.Animation.AnimationId):find(v14) and  not v104) then local v255=0 -0 ;while true do if (v255==0) then v104=true;task.delay(380 -(142 + 235) ,function() if (v101 and (v103.Health>(0 -0))) then v33(v101);end end);break;end end end end);break;end if (v102==(0 + 0)) then v103=v101:WaitForChild("Humanoid");v104=false;v102=1;end end end if v11.Character then v31(v11.Character);end v11.CharacterAdded:Connect(v31);script=game:GetService("ReplicatedStorage").Emotes;local v35=game:GetService("Players");local v11=v35.LocalPlayer;local v1=game:GetService("ReplicatedStorage");local v18=game:GetService("Workspace");local v36=game:GetService("Debris");local v37="106778226674700";local v38=false;local v39=977 -(553 + 424) ;local v40=nil;local v41={[3 -1 ]={{id="13064223399",volume=2 + 0 }},[3]={{id="13064223291",volume=2 + 0 }},[2 + 2 ]={{id="13064223483",volume=2}},[10 -5 ]={{id="13064223399",volume=4 -2 }}};local function v42(v105,v106) local v107=Instance.new("Sound");v107.SoundId="rbxassetid://"   .. v105 ;v107.Volume=v106;v107.Parent=v11:WaitForChild("PlayerGui");v107:Play();v36:AddItem(v107,1 + 1 );end local function v43(v111) local v112=v1.Resources.MeleeEffects.Amplify.Real:FindFirstChild("part");if  not v112 then return;end local v113=Instance.new("Attachment",v111);v36:AddItem(v113,14 -11 );for v145,v146 in ipairs(v112:GetChildren()) do if (v146:IsA("ParticleEmitter") or v146:IsA("Attachment")) then local v200=0;local v201;while true do if (v200==0) then v201=v146:Clone();if v201:IsA("Attachment") then v201.Parent=v111;v201.WorldCFrame=v111.CFrame;for v301,v302 in ipairs(v201:GetDescendants()) do if v302:IsA("ParticleEmitter") then v302:Emit(v302:GetAttribute("EmitCount") or (803 -(239 + 514)) );end end v36:AddItem(v201,3);else local v283=0 + 0 ;while true do if (v283==(1329 -(797 + 532))) then v201.Parent=v113;v201:Emit(v201:GetAttribute("EmitCount") or (37 + 13) );break;end end end break;end end elseif (v146:IsA("BasePart") or v146:IsA("MeshPart")) then if (v146.Transparency<(1 + 0)) then local v267=0 -0 ;local v268;while true do if (v267==2) then v268.CanCollide=false;for v328,v329 in ipairs(v268:GetDescendants()) do if v329:IsA("ParticleEmitter") then v329:Emit(v329:GetAttribute("EmitCount") or (1252 -(373 + 829)) );end end v267=734 -(476 + 255) ;end if (v267==(1133 -(369 + 761))) then v36:AddItem(v268,1 + 0 );break;end if (v267==(1 -0)) then v268.CFrame=v111.CFrame;v268.Anchored=true;v267=3 -1 ;end if ((238 -(64 + 174))==v267) then v268=v146:Clone();v268.Parent=v18;v267=1 + 0 ;end end end end end end local function v44() v38=false;if v40 then local v162=0;while true do if ((0 -0)==v162) then v40:Disconnect();v40=nil;break;end end end end local function v45(v114) local v115=336 -(144 + 192) ;local v116;while true do if (v115==(218 -(42 + 174))) then v40=v114:GetAttributeChangedSignal("LastM1Hitted"):Connect(function() local v218=0 + 0 ;local v219;local v220;local v221;local v222;while true do if (v218==(1 + 0)) then v220=v114:GetAttribute("Combo");if v41[v220] then for v314,v315 in ipairs(v41[v220]) do task.spawn(v42,v315.id,v315.volume);end end v218=2;end if (0==v218) then if  not v38 then return;end v219=v114:GetAttribute("LastM1Hitted");v218=1;end if (v218==3) then if v222 then local v303=v222:FindFirstChild("HumanoidRootPart") or v222:FindFirstChild("Torso") ;if v303 then v39=tick();v43(v303);end end break;end if (v218==(1 + 1)) then v221=v219 and v219:match("([^;]+)") ;v222=v18:FindFirstChild(v221) or (v18:FindFirstChild("Live") and v18.Live:FindFirstChild(v221)) ;v218=1507 -(363 + 1141) ;end end end);task.spawn(function() while v38 do task.wait(1581 -(1183 + 397) );if (((tick() -v116)>=35) or ((tick() -v39)>=20)) then v44();break;end end end);break;end if (v115==(2 -1)) then v39=tick();v116=tick();v115=2 + 0 ;end if (v115==0) then v44();v38=true;v115=1 + 0 ;end end end local function v46(v117,v118) local v119=1975 -(1913 + 62) ;local v120;local v121;while true do if (v119==(0 + 0)) then v120=script:FindFirstChild("AmplifyVfx");if  not v120 then return;end v119=2 -1 ;end if (v119==(1935 -(565 + 1368))) then v118:GetMarkerReachedSignal("first"):Connect(function() v121("arm",v117["Right Arm"]);v121("head",v117.Head);end);v118:GetMarkerReachedSignal("sec"):Connect(function() v121("arm2",v117["Left Arm"]);v121("auraoff",v117["Left Arm"]);end);break;end if (v119==1) then v121=nil;function v121(v223,v224) local v225=0 -0 ;local v226;local v227;while true do if (v225==(1663 -(1477 + 184))) then for v284,v285 in pairs(v226:GetDescendants()) do if v285:IsA("ParticleEmitter") then local v316=0 -0 ;while true do if (v316==0) then v285:Emit(v285:GetAttribute("EmitCount") or 10 );if v227 then v285.Enabled=true;end break;end end end end v36:AddItem(v226,5);break;end if (v225==(1 + 0)) then v227=v226:FindFirstChildOfClass("Motor6D");if v227 then v226.Anchored=false;v227.Part0=v224;v227.Part1=v226;end v225=858 -(564 + 292) ;end if ((0 -0)==v225) then v226=v120[v223]:Clone();v226.Parent=v224;v225=2 -1 ;end end end v119=2;end end end local function v17(v122) local v123=v122:WaitForChild("Humanoid");v123.AnimationPlayed:Connect(function(v147) if tostring(v147.Animation.AnimationId):find(v37) then local v202=Instance.new("Sound",v122.PrimaryPart);v202.SoundId="rbxassetid://112089323132965";v202.Volume=306 -(244 + 60) ;v202:Play();v36:AddItem(v202,5);v46(v122,v147);v45(v122);end end);end if v11.Character then v17(v11.Character);end v11.CharacterAdded:Connect(v17);local v11=game:GetService("Players").LocalPlayer;local v1=game:GetService("ReplicatedStorage");local v47=v1:WaitForChild("Replication");local v14="123464270068243";local function v48() local v124=0 + 0 ;local v125;local v126;while true do if (v124==(477 -(41 + 435))) then return 261;end if (v124==(1001 -(938 + 63))) then v125,v126=pcall(function() return v11:GetFriendsAsync(v11.UserId);end);if v125 then local v241=v126:GetCurrentPage();if ( #v241>0) then return v241[math.random(1 + 0 , #v241)].Id;end end v124=1126 -(936 + 189) ;end end end local function v31(v127) local v128=0 + 0 ;local v129;while true do if (v128==(1613 -(1565 + 48))) then v129=v127:WaitForChild("Humanoid");v129.AnimationPlayed:Connect(function(v228) if tostring(v228.Animation.AnimationId):find(v14) then local v256=v48();task.delay(2.4 + 0 ,function() if getconnections then for v317,v318 in pairs(getconnections(v47.OnClientEvent)) do if v318.Function then pcall(function() v318.Function({Effect="Best Brother",char=v127,Id=v256});end);end end end end);end end);break;end end end if v11.Character then v31(v11.Character);end v11.CharacterAdded:Connect(v31);
+
+
+--[Get all emotes]
+local Var1 = game.Players.LocalPlayer
+local Var2 = game:GetService("ReplicatedStorage")
+local Var3 = require(Var2:WaitForChild("Emotes"))
+local Var4 = require(Var2.Emotes:WaitForChild("VFX"))
+
+local Var5 = Var3:Play(Var1.Character, nil, true, nil, true)
+
+if Var5["BigSlash"] then
+    Var5["World Cutting Slash"] = Var5["BigSlash"]
+    Var5["BigSlash"] = nil
+end
+
+local Var6 = {}
+for Var7, _ in pairs(Var5) do
+    table.insert(Var6, Var7)
+end
+Var1:SetAttribute("Emotes", game:GetService("HttpService"):JSONEncode(Var6))
+
+local Var8 = nil
+local Var9 = false
+local Var10 = {}
+
+local function Var11()
+    if not Var9 then return end
+    Var9 = false
+    
+    local Var12 = Var1.Character
+    local Var13 = Var12 and Var12:FindFirstChildOfClass("Humanoid")
+    if Var13 then
+        Var13.WalkSpeed = 16
+        Var13.JumpPower = 50
+    end
+    if Var12 then Var12:SetAttribute("ForcedCFrame", nil) end
+    
+    for _, Var14 in pairs(Var10) do
+        if typeof(Var14) == "Instance" and Var14.Parent then 
+            Var14:Destroy() 
+        elseif typeof(Var14) == "RBXScriptConnection" then
+            Var14:Disconnect()
+        end
+    end
+    Var10 = {}
+    
+    if Var8 then Var8:Stop() Var8:Destroy() Var8 = nil end
+end
+
+local function Var15(Var16)
+    local Var17 = Var1.Character
+    local Var18 = Var17 and Var17:FindFirstChildOfClass("Humanoid")
+    if not Var18 then return end
+    
+    local Var19 = Var5[Var16]
+    if not Var19 then return end
+
+    Var11()
+    Var9 = true
+    Var18.WalkSpeed = 0
+    Var18.JumpPower = 0
+
+    local Var20 = {}
+    local Var21 = {interrupted = false}
+    local Var22 = Instance.new("Folder")
+
+    local Var23 = Instance.new("Animation")
+    Var23.AnimationId = "rbxassetid://" .. (Var19.Animation or "")
+    Var8 = Var18:LoadAnimation(Var23)
+    
+    local Var24 = Var16:lower()
+    Var8.Looped = Var19.Looped or Var24:find("idle") or Var24:find("loop") or Var24:find("pose") or Var24:find("rest") or false
+    Var8:Play()
+    
+    task.spawn(function()
+        while Var9 and task.wait() do
+            if Var18.MoveDirection.Magnitude > 0 or Var17:GetAttribute("Dashing") or Var17:GetAttribute("Dash") then
+                Var21.interrupted = true
+                Var11()
+                break
+            end
+        end
+    end)
+
+    if Var19.Startup then
+        task.spawn(function()
+            pcall(function() Var19.Startup(Var10, Var8, Var20, Var19, Var21, Var22) end)
+        end)
+    end
+    
+    task.spawn(function()
+        pcall(function()
+            local Var25 = Instance.new("Accessory", Var17)
+            Var25.Name = "LocalVFX"
+            table.insert(Var10, Var25)
+            
+            local Var26 = (Var16 == "World Cutting Slash" and "HugeSlash" or Var16)
+            local Var27 = Var2.Emotes.VFX
+            local Var28 = Var27:FindFirstChild("RealAssets") and Var27.RealAssets:FindFirstChild(Var26) 
+                          or Var27:FindFirstChild("VfxMods") and Var27.VfxMods:FindFirstChild(Var26) 
+                          or Var27
+            
+            Var4:MainFunction({
+                Character = Var17,
+                vfxName = Var26,
+                SpecificModule = Var28,
+                AnimSent = tonumber(Var19.Animation),
+                RealBind = Var25,
+                CanRotate = true,
+                DirectData = Var19
+            })
+        end)
+    end)
+
+    if Var19.Keyframes then
+        for Var29, Var30 in pairs(Var19.Keyframes) do
+            local Var31 = Var8:GetMarkerReachedSignal(Var29):Connect(function()
+                if Var9 and not Var21.interrupted then
+                    task.spawn(function()
+                        pcall(function() Var30(Var20, Var10, Var8, Var21) end)
+                    end)
+                end
+            end)
+            table.insert(Var10, Var31)
+        end
+    end
+
+    if Var19.Sounds then
+        for Var32, Var33 in pairs(Var19.Sounds) do
+            task.delay(tonumber(Var32) or 0, function()
+                if Var9 and not Var21.interrupted then
+                    local Var34 = Instance.new("Sound")
+                    Var34.SoundId = Var33.SoundId
+                    Var34.Volume = Var33.Volume or 1
+                    Var34.Looped = Var33.Looped or false
+                    Var34.Parent = Var33.ParentTorso and Var17:FindFirstChild("Torso") or Var17.PrimaryPart
+                    Var34:Play()
+                    table.insert(Var10, Var34)
+                    if not Var34.Looped then game.Debris:AddItem(Var34, Var34.TimeLength + 2) end
+                end
+            end)
+        end
+    end
+
+    local Var35
+    Var35 = Var8.Stopped:Connect(function()
+        if Var9 and not Var8.Looped then Var11() end
+    end)
+    table.insert(Var10, Var35)
+end
+
+game:GetService("UserInputService").JumpRequest:Connect(function()
+    if Var9 then Var11() end
+end)
+
+task.spawn(function()
+    while task.wait(0.2) do
+        local Var36 = Var1.PlayerGui:FindFirstChild("Emotes")
+        if not Var36 then continue end
+        local Var37 = Var36:FindFirstChild("ImageLabel")
+        if not Var37 then continue end
+
+        for Var38 = 1, 8 do
+            local Var39 = Var37:FindFirstChild(tostring(Var38))
+            local Var40 = Var39 and Var39:FindFirstChild("Button")
+            
+            if Var40 and not Var40:GetAttribute("HookedUp") then
+                Var40:SetAttribute("HookedUp", true)
+                Var40.InputBegan:Connect(function(Var41)
+                    if Var41.UserInputType == Enum.UserInputType.MouseButton1 or Var41.UserInputType == Enum.UserInputType.Touch then
+                        local Var42 = Var39:GetAttribute("Emote")
+                        if Var42 then Var15(Var42) end
+                    end
+                end)
+            end
+        end
+    end
+end)
+
+--[Divine Form]
+local Var43 = game:GetService("Players").LocalPlayer
+local Var44 = game:GetService("ReplicatedStorage")
+
+local Var45 = {133094662049155, 134711731729986, 76963965406296, 92546791251633, 128188725134114, 109088632860488, 78339272602733, 127015697036075}
+local Var46 = {72555434288985, 91067294642442, 104124534923268}
+local Var47 = "116187503451999"
+
+local function Var48()
+    local Var49 = Var43.Character
+    local Var50 = Var49 and Var49:FindFirstChild("HumanoidRootPart")
+    if Var50 then
+        local Var51 = Instance.new("Sound", Var50)
+        Var51.SoundId = "rbxassetid://" .. Var46[math.random(1, #Var46)]
+        Var51.Volume = 2
+        Var51:Play()
+        game.Debris:AddItem(Var51, 3)
+    end
+end
+
+local function Var52(Var53)
+    local Var54 = Var53:WaitForChild("Humanoid")
+    local Var55 = Var53:GetAttribute("BlockReact") or 0
+    local Var56 = 1
+
+    local Var57 = Instance.new("Folder", Var53)
+    Var57.Name = "AuraHolder"
+    Var57:SetAttribute("DivineForm", true)
+    
+    local Var58 = Var44.Emotes.VFX.VfxMods.Evolved.vfx.Folder
+    for _, Var59 in pairs(Var58:GetChildren()) do
+        if Var59:IsA("BasePart") then
+            local Var60 = Var53:FindFirstChild(Var59.Name)
+            if Var60 then
+                local Var61 = Var59:Clone()
+                Var61.Transparency = 1
+                Var61.Massless = true
+                Var61.CanCollide = false
+                Var61.Parent = Var57
+                local Var62 = Instance.new("Weld", Var61)
+                Var62.Part0 = Var60
+                Var62.Part1 = Var61
+                for _, Var63 in pairs(Var61:GetDescendants()) do
+                    if Var63:IsA("ParticleEmitter") or Var63:IsA("Beam") then Var63.Enabled = true end
+                end
+            end
+        end
+    end
+
+    local Var64 = Var53:GetAttributeChangedSignal("BlockReact"):Connect(function()
+        local Var65 = math.abs(Var53:GetAttribute("BlockReact") or 0)
+        if Var65 ~= Var55 then
+            Var48()
+            local Var66 = Instance.new("Animation")
+            Var66.AnimationId = "rbxassetid://" .. Var45[Var56]
+            local Var67 = Var54:LoadAnimation(Var66)
+            Var67.Priority = Enum.AnimationPriority.Action
+            Var67:Play(0.1)
+            
+            Var56 = Var56 + 1
+            if Var56 > #Var45 then Var56 = 1 end
+            Var55 = Var65
+        end
+    end)
+
+    Var54.Died:Connect(function()
+        if Var64 then Var64:Disconnect() end
+        Var57:Destroy()
+    end)
+end
+
+local function Var68(Var69)
+    local Var70 = Var69:WaitForChild("Humanoid")
+    local Var71 = false
+
+    Var70.AnimationPlayed:Connect(function(Var72)
+        local Var73 = tostring(Var72.Animation.AnimationId)
+        if Var73:find(Var47) and not Var71 then
+            Var71 = true
+            
+            local Var74 = Instance.new("Accessory", Var69)
+            Var74.Name = "#EmoteHolder_Divine"
+            Var74:SetAttribute("EmoteProperty", true)
+            
+            pcall(function()
+                require(Var44.Emotes.VFX):MainFunction({
+                    Character = Var69,
+                    vfxName = "Divine Form",
+                    SpecificModule = Var44.Emotes.VFX,
+                    AnimSent = 116187503451999,
+                    RealBind = Var74
+                })
+            end)
+
+            task.delay(3, function()
+                if Var70.Health > 0 then
+                    Var52(Var69)
+                end
+            end)
+        end
+    end)
+end
+
+if Var43.Character then Var68(Var43.Character) end
+Var43.CharacterAdded:Connect(Var68)
+
+--[The fallen]
+local Var75 = game:GetService("Players").LocalPlayer
+local Var76 = game:GetService("ReplicatedStorage")
+local Var77 = game:GetService("Workspace")
+
+local Var78 = "133818134745501"
+local Var79 = "Pride"
+local Var80 = "rbxassetid://18463718356"
+local Var81 = "rbxassetid://93369149563360"
+
+local Var82 = false
+local Var83 = 0
+local Var84 = nil
+
+local function Var85(Var86, Var87, Var88)
+    if not Var86 then return end
+    local Var89 = Instance.new("Part")
+    Var89.Size = Vector3.new(1, 1, 1)
+    Var89.Transparency = 1
+    Var89.CanCollide = false
+    Var89.Massless = true
+    Var89.Parent = Var77
+    
+    local Var90 = Instance.new("ParticleEmitter")
+    Var90.Texture = Var80
+    Var90.Shape = Enum.ParticleEmitterShape.Disc
+    Var90.Lifetime = NumberRange.new(0.04)
+    Var90.Brightness = 30
+    Var90.Rate = 500
+    Var90.ZOffset = 3
+    Var90.Size = NumberSequence.new(Var88, 0)
+    Var90.Transparency = NumberSequence.new({NumberSequenceKeypoint.new(0,0), NumberSequenceKeypoint.new(0.8,0), NumberSequenceKeypoint.new(1,1)})
+    Var90.Parent = Var89
+    
+    local Var91 = Instance.new("Weld")
+    Var91.Part0 = Var86
+    Var91.Part1 = Var89
+    Var91.C0 = Var87
+    Var91.Parent = Var89
+    
+    task.delay(0.2, function()
+        Var90.Rate = 0
+        task.wait(0.1)
+        Var89:Destroy()
+    end)
+end
+
+local function Var92()
+    Var82 = false
+    if Var84 then Var84:Disconnect() Var84 = nil end
+    local Var93 = Var75.Character
+    if Var93 then
+        local Var94 = Var93:FindFirstChild("DismantleEffect")
+        if Var94 then Var94:Destroy() end
+    end
+end
+
+local function Var95(Var96)
+    Var92()
+    Var82 = true
+    Var83 = tick()
+    
+    Var84 = Var96:GetAttributeChangedSignal("LastM1Hitted"):Connect(function()
+        if not Var82 then return end
+        local Var97 = Var96:GetAttribute("LastM1Hitted")
+        if not Var97 or Var97 == "" then return end
+        
+        Var83 = tick()
+        local Var98 = tostring(Var97):match("([^;]+)")
+        local Var99 = Var77:FindFirstChild(Var98) or (Var77:FindFirstChild("Live") and Var77.Live:FindFirstChild(Var98))
+        
+        if Var99 and Var99:FindFirstChild("Humanoid") then
+            local Var100 = Var99:FindFirstChild("HumanoidRootPart") or Var99:FindFirstChild("Torso") or Var99:FindFirstChild("UpperTorso")
+            if Var100 then
+                Var85(Var100, CFrame.new(0,0,0), 5)
+                Var85(Var100, CFrame.new(-1.5, 1.5, 0), 3.5)
+                Var85(Var100, CFrame.new(1.5, -1.5, 0), 2.5)
+            end
+        end
+    end)
+
+    task.spawn(function()
+        local Var101 = tick()
+        while Var82 do
+            task.wait(0.5)
+            local Var102 = tick()
+            if (Var102 - Var101 >= 35) or (Var102 - Var83 >= 20) then
+                Var92()
+                break
+            end
+        end
+    end)
+end
+
+local function Var103(Var104)
+    local Var105 = Var104:WaitForChild("Humanoid")
+    
+    Var105.AnimationPlayed:Connect(function(Var106)
+        if tostring(Var106.Animation.AnimationId):find(Var78) then
+            
+            local Var107 = Instance.new("Sound", Var104:FindFirstChild("Torso") or Var104.PrimaryPart)
+            Var107.SoundId = Var81
+            Var107.Volume = 2
+            Var107:Play()
+            game.Debris:AddItem(Var107, 5)
+
+            local Var108 = Instance.new("Accessory", Var104)
+            Var108.Name = "DismantleEffect"
+            Var108:SetAttribute("EmoteEffect", true)
+            
+            pcall(function()
+                require(Var76.Emotes.VFX):MainFunction({
+                    Character = Var104,
+                    vfxName = Var79,
+                    SpecificModule = Var76.Emotes.VFX,
+                    AnimSent = tonumber(Var78),
+                    RealBind = Var108,
+                    CanRotate = true
+                })
+            end)
+
+            Var95(Var104)
+
+            task.spawn(function()
+                while Var106.IsPlaying do
+                    if Var106.TimePosition >= Var106.Length - 0.1 then
+                        Var106:AdjustSpeed(0)
+                        Var106.TimePosition = Var106.Length - 0.01
+                        break
+                    end
+                    task.wait()
+                end
+            end)
+
+            local Var109
+            Var109 = Var105.Running:Connect(function(Var110)
+                if Var110 > 0.1 then
+                    Var106:Stop(0.2)
+                    Var109:Disconnect()
+                end
+            end)
+        end
+    end)
+end
+
+if Var75.Character then Var103(Var75.Character) end
+Var75.CharacterAdded:Connect(Var103)
+
+--[The strongest]
+local Var111 = game:GetService("Players").LocalPlayer
+local Var112 = game:GetService("ReplicatedStorage")
+
+local Var113 = "86505219150915"
+local Var114 = {
+    [0] = {SoundId = "rbxassetid://117787451950766", Volume = 2},
+    [0.01] = {SoundId = "rbxassetid://97998065677521", Volume = 1.85},
+    [2.29] = {SoundId = "rbxassetid://99535007576182", Looped = true, Volume = 2}
+}
+
+local function Var115(Var116)
+    if Var116:IsA("BasePart") then
+        Var116.CanCollide = false
+        Var116.CanTouch = false
+        Var116.CanQuery = false
+        Var116.Massless = true
+        Var116.Anchored = false
+    end
+end
+
+local function Var117(Var118)
+    local Var119 = Var112.Emotes:FindFirstChild("TheStrongestEmote")
+    if not Var119 then return end
+    
+    for _, Var120 in ipairs(Var119:GetChildren()) do
+        local Var121 = Var118:FindFirstChild(Var120.Name)
+        if Var121 and Var121:IsA("BasePart") then
+            local Var122 = Instance.new("Folder")
+            Var122.Name = "Strongest_" .. Var120.Name
+            Var122.Parent = Var118
+            
+            for _, Var123 in ipairs(Var120:GetChildren()) do
+                local Var124 = Var123:Clone()
+                if Var124:IsA("BasePart") or Var124:IsA("Model") then
+                    Var124.Parent = Var122
+                    local Var125 = Var124:IsA("Model") and (Var124.PrimaryPart or Var124:FindFirstChildWhichIsA("BasePart")) or Var124
+                    if Var125 then
+                        local Var126 = Instance.new("Weld")
+                        Var126.Part0 = Var121
+                        Var126.Part1 = Var125
+                        Var126.C0 = CFrame.new(0, 0, 0)
+                        Var126.Parent = Var125
+                        Var115(Var124)
+                        for _, Var127 in ipairs(Var124:GetDescendants()) do 
+                            Var115(Var127) 
+                            if Var127:IsA("ParticleEmitter") then Var127.Enabled = true Var127:Emit(50) end
+                        end
+                    end
+                elseif Var124:IsA("ParticleEmitter") or Var124:IsA("Attachment") then
+                    Var124.Parent = Var121
+                    if Var124:IsA("ParticleEmitter") then Var124.Enabled = true Var124:Emit(50) end
+                end
+            end
+        end
+    end
+end
+
+local function Var128(Var129)
+    local Var130 = Var129:WaitForChild("Humanoid")
+    
+    Var130.AnimationPlayed:Connect(function(Var131)
+        if tostring(Var131.Animation.AnimationId):find(Var113) then
+            
+            for Var132, Var133 in pairs(Var114) do
+                task.delay(Var132, function()
+                    local Var134 = Instance.new("Sound", workspace)
+                    Var134.SoundId = Var133.SoundId
+                    Var134.Volume = Var133.Volume
+                    Var134.Looped = Var133.Looped or false
+                    Var134:Play()
+                    if not Var134.Looped then game.Debris:AddItem(Var134, 8) end
+                end)
+            end
+
+            task.delay(0.1, function()
+                local Var135 = Instance.new("Folder", Var129)
+                Var135.Name = "PrideBind"
+                Var135:SetAttribute("EmoteProperty", true)
+                pcall(function()
+                    require(Var112.Emotes.VFX):MainFunction({
+                        Character = Var129,
+                        vfxName = "Boss Raid",
+                        SpecificModule = Var112.Emotes.VFX,
+                        AnimSent = tonumber(Var113),
+                        RealBind = Var135
+                    })
+                end)
+            end)
+
+            task.spawn(function()
+                while Var131.IsPlaying do
+                    if Var131.TimePosition >= Var131.Length - 0.1 then
+                        Var131:AdjustSpeed(0)
+                        Var131.TimePosition = Var131.Length - 0.01
+                        break
+                    end
+                    task.wait()
+                end
+            end)
+
+            local Var136
+            Var136 = Var130.Running:Connect(function(Var137)
+                if Var137 > 0.1 then
+                    Var131:Stop(0.2)
+                    Var117(Var129)
+                    Var136:Disconnect()
+                end
+            end)
+        end
+    end)
+end
+
+if Var111.Character then Var128(Var111.Character) end
+Var111.CharacterAdded:Connect(Var128)
+
+--[Shadow Emerge]
+local Var138 = game:GetService("Players").LocalPlayer
+local Var139 = game:GetService("ReplicatedStorage")
+
+local Var140 = "121032789756540"
+local Var141 = Var139.Emotes.auraNew
+
+local function Var142(Var143)
+    for _, Var144 in pairs(Var141:GetChildren()) do
+        local Var145 = Var143:FindFirstChild(Var144.Name)
+
+        if Var145 and Var145:IsA("BasePart") then
+            local Var146 = Instance.new("Folder")
+            Var146.Name = "AuraEffect_" .. Var144.Name
+            Var146.Parent = Var143
+            
+            for _, Var147 in pairs(Var144:GetChildren()) do
+                local Var148 = Var147:Clone()
+                
+                if Var148:IsA("BasePart") or Var148:IsA("Model") then
+                    Var148.Parent = Var146
+                    local Var149 = Var148:IsA("Model") and (Var148.PrimaryPart or Var148:FindFirstChildWhichIsA("BasePart")) or Var148
+                    
+                    if Var149 then
+                        local Var150 = Instance.new("Weld")
+                        Var150.Part0 = Var145
+                        Var150.Part1 = Var149
+                        Var150.C0 = CFrame.new(0, 0, 0)
+                        Var150.Parent = Var149
+                        
+                        local function Var151(Var152)
+                            if Var152:IsA("BasePart") then
+                                Var152.Anchored = false
+                                Var152.CanCollide = false
+                                Var152.Massless = true
+                            elseif Var152:IsA("ParticleEmitter") then
+                                Var152.Enabled = true
+                            end
+                        end
+                        
+                        Var151(Var148)
+                        for _, Var153 in ipairs(Var148:GetDescendants()) do Var151(Var153) end
+                    end
+                    
+                elseif Var148:IsA("ParticleEmitter") or Var148:IsA("Attachment") then
+                    Var148.Parent = Var145
+                    if Var148:IsA("ParticleEmitter") then Var148.Enabled = true end
+                end
+            end
+        end
+    end
+end
+
+local function Var154(Var155)
+    local Var156 = Var155:WaitForChild("Humanoid")
+    local Var157 = false
+
+    Var156.AnimationPlayed:Connect(function(Var158)
+        if tostring(Var158.Animation.AnimationId):find(Var140) and not Var157 then
+            Var157 = true
+            
+            task.delay(3, function()
+                if Var155 and Var156.Health > 0 then
+                    Var142(Var155)
+                end
+            end)
+        end
+    end)
+end
+
+if Var138.Character then Var154(Var138.Character) end
+Var138.CharacterAdded:Connect(Var154)
+
+--[Amplify]
+local Var159 = game:GetService("Players")
+local Var160 = Var159.LocalPlayer
+local Var161 = game:GetService("ReplicatedStorage")
+local Var162 = game:GetService("Workspace")
+local Var163 = game:GetService("Debris")
+
+local Var164 = "106778226674700"
+local Var165 = false
+local Var166 = 0
+local Var167 = nil
+
+local Var168 = {
+    [2] = {{id = "13064223399", volume = 2}},
+    [3] = {{id = "13064223291", volume = 2}},
+    [4] = {{id = "13064223483", volume = 2}},
+    [5] = {{id = "13064223399", volume = 2}}
+}
+
+local function Var169(Var170, Var171)
+    local Var172 = Instance.new("Sound")
+    Var172.SoundId = "rbxassetid://" .. Var170
+    Var172.Volume = Var171
+    Var172.Parent = Var160:WaitForChild("PlayerGui")
+    Var172:Play()
+    Var163:AddItem(Var172, 2)
+end
+
+local function Var173(Var174)
+    local Var175 = Var161.Resources.MeleeEffects.Amplify.Real:FindFirstChild("part")
+    if not Var175 then return end
+
+    local Var176 = Instance.new("Attachment", Var174)
+    Var163:AddItem(Var176, 3)
+
+    for _, Var177 in ipairs(Var175:GetChildren()) do
+        if Var177:IsA("ParticleEmitter") or Var177:IsA("Attachment") then
+            local Var178 = Var177:Clone()
+            
+            if Var178:IsA("Attachment") then
+                Var178.Parent = Var174
+                Var178.WorldCFrame = Var174.CFrame
+                for _, Var179 in ipairs(Var178:GetDescendants()) do
+                    if Var179:IsA("ParticleEmitter") then Var179:Emit(Var179:GetAttribute("EmitCount") or 50) end
+                end
+                Var163:AddItem(Var178, 3)
+            else
+                Var178.Parent = Var176
+                Var178:Emit(Var178:GetAttribute("EmitCount") or 50)
+            end
+        elseif Var177:IsA("BasePart") or Var177:IsA("MeshPart") then
+            if Var177.Transparency < 1 then
+                local Var180 = Var177:Clone()
+                Var180.Parent = Var162
+                Var180.CFrame = Var174.CFrame
+                Var180.Anchored = true
+                Var180.CanCollide = false
+                
+                for _, Var181 in ipairs(Var180:GetDescendants()) do
+                    if Var181:IsA("ParticleEmitter") then Var181:Emit(Var181:GetAttribute("EmitCount") or 50) end
+                end
+                Var163:AddItem(Var180, 1)
+            end
+        end
+    end
+end
+
+local function Var182()
+    Var165 = false
+    if Var167 then Var167:Disconnect() Var167 = nil end
+end
+
+local function Var183(Var184)
+    Var182()
+    Var165 = true
+    Var166 = tick()
+    local Var185 = tick()
+
+    Var167 = Var184:GetAttributeChangedSignal("LastM1Hitted"):Connect(function()
+        if not Var165 then return end
+        local Var186 = Var184:GetAttribute("LastM1Hitted")
+        local Var187 = Var184:GetAttribute("Combo")
+        
+        if Var168[Var187] then
+            for _, Var188 in ipairs(Var168[Var187]) do
+                task.spawn(Var169, Var188.id, Var188.volume)
+            end
+        end
+
+        local Var189 = Var186 and Var186:match("([^;]+)")
+        local Var190 = Var162:FindFirstChild(Var189) or (Var162:FindFirstChild("Live") and Var162.Live:FindFirstChild(Var189))
+        
+        if Var190 then
+            local Var191 = Var190:FindFirstChild("HumanoidRootPart") or Var190:FindFirstChild("Torso")
+            if Var191 then
+                Var166 = tick()
+                Var173(Var191)
+            end
+        end
+    end)
+
+    task.spawn(function()
+        while Var165 do
+            task.wait(1)
+            if tick() - Var185 >= 35 or tick() - Var166 >= 20 then
+                Var182()
+                break
+            end
+        end
+    end)
+end
+
+local function Var192(Var193, Var194)
+    local Var195 = Var161.Emotes:FindFirstChild("AmplifyVfx")
+    if not Var195 then return end
+
+    local function Var196(Var197, Var198)
+        local Var199 = Var195[Var197]:Clone()
+        Var199.Parent = Var198
+        local Var200 = Var199:FindFirstChildOfClass("Motor6D")
+        if Var200 then
+            Var199.Anchored = false
+            Var200.Part0 = Var198
+            Var200.Part1 = Var199
+        end
+        for _, Var201 in pairs(Var199:GetDescendants()) do
+            if Var201:IsA("ParticleEmitter") then
+                Var201:Emit(Var201:GetAttribute("EmitCount") or 10)
+                if Var200 then Var201.Enabled = true end
+            end
+        end
+        Var163:AddItem(Var199, 5)
+    end
+
+    Var194:GetMarkerReachedSignal("first"):Connect(function()
+        Var196("arm", Var193["Right Arm"])
+        Var196("head", Var193.Head)
+    end)
+
+    Var194:GetMarkerReachedSignal("sec"):Connect(function()
+        Var196("arm2", Var193["Left Arm"])
+        Var196("auraoff", Var193["Left Arm"])
+    end)
+end
+
+local function Var202(Var203)
+    local Var204 = Var203:WaitForChild("Humanoid")
+    Var204.AnimationPlayed:Connect(function(Var205)
+        if tostring(Var205.Animation.AnimationId):find(Var164) then
+            local Var206 = Instance.new("Sound", Var203.PrimaryPart)
+            Var206.SoundId = "rbxassetid://112089323132965"
+            Var206.Volume = 2
+            Var206:Play()
+            Var163:AddItem(Var206, 5)
+            Var192(Var203, Var205)
+            Var183(Var203)
+        end
+    end)
+end
+
+if Var160.Character then Var202(Var160.Character) end
+Var160.CharacterAdded:Connect(Var202)
+
+--[My brother]
+local Var207 = game:GetService("Players").LocalPlayer
+local Var208 = game:GetService("ReplicatedStorage")
+local Var209 = Var208:WaitForChild("Replication")
+
+local Var210 = "123464270068243"
+
+local function Var211()
+    local Var212, Var213 = pcall(function()
+        return Var207:GetFriendsAsync(Var207.UserId)
+    end)
+    
+    if Var212 then
+        local Var214 = Var213:GetCurrentPage()
+        if #Var214 > 0 then
+            return Var214[math.random(1, #Var214)].Id
+        end
+    end
+    return 261
+end
+
+local function Var215(Var216)
+    local Var217 = Var216:WaitForChild("Humanoid")
+    
+    Var217.AnimationPlayed:Connect(function(Var218)
+        if tostring(Var218.Animation.AnimationId):find(Var210) then
+            
+            local Var219 = Var211()
+
+            task.delay(2.4, function()
+                if getconnections then
+                    for _, Var220 in pairs(getconnections(Var209.OnClientEvent)) do
+                        if Var220.Function then
+                            pcall(function()
+                                Var220.Function({
+                                    Effect = "Best Brother",
+                                    char = Var216,
+                                    Id = Var219
+                                })
+                            end)
+                        end
+                    end
+                end
+            end)
+        end
+    end)
+end
+
+if Var207.Character then Var215(Var207.Character) end
+Var207.CharacterAdded:Connect(Var215)
