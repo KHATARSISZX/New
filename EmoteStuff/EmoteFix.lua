@@ -1,4 +1,3 @@
-
 local _junk = 12345; function _junkFunc() return _junk * 9 end
 local v1 = v2.v3.v4
 local v5 = v2:v6(v7("return '\\v8\\v9\\v10\\v11\\v12\\v13\\v14\\v15\\v9\\v16\\v17\\v15\\v18\\v19\\v14\\v20\\v9'")())
